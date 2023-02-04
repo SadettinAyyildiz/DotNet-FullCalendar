@@ -7,6 +7,8 @@ namespace DentistCalendar.Models
 {
     public class DenemeViewModel
     {
-        public List<string> Colors { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string CityId { get; set; }
     }
 }

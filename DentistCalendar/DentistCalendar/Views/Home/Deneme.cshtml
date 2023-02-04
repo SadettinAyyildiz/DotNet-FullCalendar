@@ -3,10 +3,12 @@
     ViewData["Title"] = "Deneme";
 }
 
-<h1>Colors</h1>
+<h1>Tag Helpers Test</h1>
 
-@foreach (var color in Model.Colors)
-{
-    <p>@color</p>
-}
+<form asp-action="Deneme" asp-controller="Home">
+    <label>Name: </label> <input asp-for="Name"/> <br />
+    <label>Surname: </label> <input asp-for="Surname"/> <br />
+    <label>CityId: </label> <input asp-for="CityId"/> <br />
+    <button type="submit">Submit</button>
+</form>
 

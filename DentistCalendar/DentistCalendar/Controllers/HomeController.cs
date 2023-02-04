@@ -21,6 +21,23 @@ namespace DentistCalendar.Controllers
         public IActionResult Index()
         {
             return View();
+
+            //Redirect ile
+            //return Redirect("/home/deneme");
+
+            //Aynı Controller içinde redirect
+            //return RedirectToAction("Deneme");
+
+            //Fareklı Controller için redirect -> ikinci parametre olarak hangi Controller olduğu geçilir
+            //return RedirectToAction("Deneme", "Home"); 
+
+        }
+
+        // Json dönmek için - Deneme2 çağırıldığında Json döner
+        public JsonResult Deneme2()
+        {
+            //işlemler
+            return Json("data");
         }
 
         public IActionResult Privacy()

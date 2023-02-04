@@ -28,6 +28,18 @@ namespace DentistCalendar.Controllers
             return View();
         }
 
+        public IActionResult Deneme()
+        {
+            List<string> colors = new List<string>() { "Blue", "Yellow" };
+            DenemeViewModel model = new DenemeViewModel()
+            { 
+                Colors = colors
+            };
+
+            return View(model); //--> Views altında Deneme yi çağırır
+            //return View("Index"); //--> Views altında Indeks i çağırır
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

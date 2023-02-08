@@ -11,13 +11,7 @@ namespace DentistCalendar.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
+       
         public IActionResult Index()
         {
             return View();
@@ -26,24 +20,6 @@ namespace DentistCalendar.Controllers
         public IActionResult Privacy()
         {
             return View();
-        }
-
-        public IActionResult Deneme()
-        {
-            List<string> colors = new List<string>() { "Blue", "Yellow" };
-            DenemeViewModel model = new DenemeViewModel()
-            { 
-                Colors = colors
-            };
-
-            return View(model); //--> Views altında Deneme yi çağırır
-            //return View("Index"); //--> Views altında Indeks i çağırır
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

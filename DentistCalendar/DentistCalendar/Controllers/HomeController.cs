@@ -11,7 +11,6 @@ namespace DentistCalendar.Controllers
 {
     public class HomeController : Controller
     {
-       
         public IActionResult Index()
         {
             return View();
@@ -21,5 +20,6 @@ namespace DentistCalendar.Controllers
         {
             return View();
         }
+
     }
 }

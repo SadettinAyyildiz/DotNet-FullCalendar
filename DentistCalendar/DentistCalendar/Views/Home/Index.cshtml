@@ -39,10 +39,16 @@
 
                 // header bölümünde ne hangi tarafta görünecek
                 header: {
-                    left: 'prev, next, today', // araya virgüllerden sonra boşluk bırakırsak kalendarda da bırakıyor
+                    left: 'prev, next, today', // araya virgüllerden sonra boşluk bırakırsak takvimde da bırakıyor
                     center: 'title',
                     right: 'dayGridMonth, timeGridWeek' // günlere bölünmüş aylar ve saatlere bölünmüş haftalar alanları
-                }
+                },
+
+                // default olarak timeGridWeek gelsin (günlere bölünmüş haftalar)
+                defaultView: 'timeGridWeek',
+
+                // haftasonları takvimde görünmesin
+                weekends: false
             });
             calendar.render();
         });

@@ -3,8 +3,12 @@
 }
 
 @section Styles {
+    <!-- bootstrap görünümü için -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='~/lib/fullcalendar/core/main.css' rel='stylesheet' />
     <link href='~/lib/fullcalendar/daygrid/main.css' rel='stylesheet' />
+    <!-- bootstrap teması için -->
+    <link href='~/lib/fullcalendar/bootstrap/main.css' rel='stylesheet' />
     <!-- dosya yolundan sürükle bırak ile sonradan ekledik -->
     <!-- saatlere bölünmüş haftalar gridini eklemek için -->
     <link href="~/lib/fullcalendar/timegrid/main.css" rel="stylesheet" />
@@ -19,6 +23,9 @@
     <script src='/lib/fullcalendar/core/main.js'></script>
     <script src='/lib/fullcalendar/daygrid/main.js'></script>
 
+    <!-- bootstrap teması için -->
+    <script src='/lib/fullcalendar/bootstrap/main.js'></script>
+
     <!-- dosya yolundan sürükle bırak ile sonradan ekledik -->
     <!-- saatlere bölünmüş haftalar gridini eklemek için -->
     <script src="~/lib/fullcalendar/timegrid/main.js"></script>
@@ -32,16 +39,19 @@
             var calendar = new FullCalendar.Calendar(calendarEl, {
 
                 // kullanılacak gridleri plugin olarak ekliyoruz
-                plugins: ['dayGrid', 'timeGrid'],
+                plugins: ['dayGrid', 'timeGrid', 'bootstrap'],
+
+                // tema değiştirme
+                themeSystem: 'bootstrap',
 
                 // takvimin türkçe kullanımı için
                 locale: 'tr',
 
                 // header bölümünde ne hangi tarafta görünecek
                 header: {
-                    left: 'prev, next, today', // araya virgüllerden sonra boşluk bırakırsak takvimde da bırakıyor
+                    left: 'prev, next, today', //getDate', // araya virgüllerden sonra boşluk bırakırsak takvimde da bırakıyor
                     center: 'title',
-                    right: 'dayGridMonth, timeGridWeek' // günlere bölünmüş aylar ve saatlere bölünmüş haftalar alanları
+                    right: 'dayGridMonth, timeGridWeek, timeGridDay, timeGridForFourDay' // günlere bölünmüş aylar, saatlere bölünmüş haftalar, saatlere bölünmüş günler alanları
                 },
 
                 // default olarak timeGridWeek mı gelsin dayGridMonth mı gelsin (günlere bölünmüş haftalar, aya göre bölünmüş günler)
@@ -49,6 +59,12 @@
 
                 // haftasonları takvimde görünsün mü görünmesin mi
                 weekends: true,
+
+                // en üstüke tüm gün slotunu kapatır, default true gelir
+                allDaySlot: false,
+
+                // Başlangıç gününü değiştirmek
+                //firstDay: 0, // Pazar=0, 1, 2, ...
 
                 // başlığı formatlamak için
                 titleFormat: {
@@ -65,7 +81,44 @@
                     //month: 'numeric',
                     weekday: 'long',//'short',
                     //day: 'numeric'
-                }
+                },
+
+                // kendi görünümünü oluşturma
+                views: {
+                    timeGridForFourDay: {
+                        type: 'timeGrid',
+                        //dayCount gizlenmiş günler denk geliyorsa atlar sonraki günleri alır, duration gizlenmiş günler geliyorsa göstermez eksik gün gösterir
+                        //dayCount: 4,
+                        duration: { days: 4 },
+                        buttonText: '4 Gün' // default olarak timeGrid i alır
+                    }
+                },
+
+                //kendi butonumuzu oluşturma
+                customButtons: {
+                    getDate: {
+                        text: 'date',
+                        click: function () {
+                            var date = new Date();
+                            alert(date);
+                        }
+                    }
+                },
+
+                // buton text lerini değiştirmek
+                //buttonText: {
+                //    today: 'Bugün Bugün',
+                //    month: 'Ay ve Ay',
+                //    week: 'Hafta Hafta',
+                //    day: 'Gün Gün'
+                //},
+
+                // footer oluşturma
+                footer: {
+                    left: 'getDate',
+                    center: 'title',
+                    right: 'timeGridForFourDay'
+                },
             });
             calendar.render();
         });

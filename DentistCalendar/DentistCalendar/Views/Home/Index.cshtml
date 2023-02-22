@@ -53,6 +53,9 @@
                 // en üstüke tüm gün slotunu kapatır, default true gelir
                 allDaySlot: false,
 
+                // Başlangıç gününü değiştirmek
+                firstDay: 0, // Pazar=0, 1, 2, ...
+
                 // başlığı formatlamak için
                 titleFormat: {
                     year: 'numeric',
@@ -81,16 +84,16 @@
                     }
                 },
 
-                // kendi butonumuzu oluşturma
-                //customButtons: {
-                //    getDate: {
-                //        text: 'date',
-                //        click: function () {
-                //            var date = new Date();
-                //            alert(date);
-                //        }
-                //    }
-                //},
+                //kendi butonumuzu oluşturma
+                customButtons: {
+                    getDate: {
+                        text: 'date',
+                        click: function () {
+                            var date = new Date();
+                            alert(date);
+                        }
+                    }
+                },
 
                 // buton text lerini değiştirmek
                 //buttonText: {
@@ -98,7 +101,14 @@
                 //    month: 'Ay ve Ay',
                 //    week: 'Hafta Hafta',
                 //    day: 'Gün Gün'
-                //}
+                //},
+
+                // footer oluşturma
+                footer: {
+                    left: 'getDate', 
+                    center: 'title',
+                    right: 'timeGridForFourDay' 
+                },
             });
             calendar.render();
         });

@@ -39,7 +39,7 @@
 
                 // header bölümünde ne hangi tarafta görünecek
                 header: {
-                    left: 'prev, next, today', // araya virgüllerden sonra boşluk bırakırsak takvimde da bırakıyor
+                    left: 'prev, next, today', //getDate', // araya virgüllerden sonra boşluk bırakırsak takvimde da bırakıyor
                     center: 'title',
                     right: 'dayGridMonth, timeGridWeek, timeGridDay, timeGridForFourDay' // günlere bölünmüş aylar, saatlere bölünmüş haftalar, saatlere bölünmüş günler alanları
                 },
@@ -72,14 +72,33 @@
 
                 // kendi görünümünü oluşturma
                 views: {
-                     timeGridForFourDay: {
+                    timeGridForFourDay: {
                         type: 'timeGrid',
                         //dayCount gizlenmiş günler denk geliyorsa atlar sonraki günleri alır, duration gizlenmiş günler geliyorsa göstermez eksik gün gösterir
                         //dayCount: 4,
                         duration: { days: 4 },
                         buttonText: '4 Gün' // default olarak timeGrid i alır
-                     }
-                }
+                    }
+                },
+
+                // kendi butonumuzu oluşturma
+                //customButtons: {
+                //    getDate: {
+                //        text: 'date',
+                //        click: function () {
+                //            var date = new Date();
+                //            alert(date);
+                //        }
+                //    }
+                //},
+
+                // buton text lerini değiştirmek
+                //buttonText: {
+                //    today: 'Bugün Bugün',
+                //    month: 'Ay ve Ay',
+                //    week: 'Hafta Hafta',
+                //    day: 'Gün Gün'
+                //}
             });
             calendar.render();
         });

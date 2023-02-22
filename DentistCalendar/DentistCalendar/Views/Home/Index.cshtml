@@ -41,7 +41,7 @@
                 header: {
                     left: 'prev, next, today', // araya virgüllerden sonra boşluk bırakırsak takvimde da bırakıyor
                     center: 'title',
-                    right: 'dayGridMonth, timeGridWeek' // günlere bölünmüş aylar ve saatlere bölünmüş haftalar alanları
+                    right: 'dayGridMonth, timeGridWeek, timeGridDay' // günlere bölünmüş aylar, saatlere bölünmüş haftalar, saatlere bölünmüş günler alanları
                 },
 
                 // default olarak timeGridWeek mı gelsin dayGridMonth mı gelsin (günlere bölünmüş haftalar, aya göre bölünmüş günler)
@@ -49,6 +49,9 @@
 
                 // haftasonları takvimde görünsün mü görünmesin mi
                 weekends: true,
+
+                // en üstüke tüm gün slotunu kapatır, default true gelir
+                allDaySlot: false,
 
                 // başlığı formatlamak için
                 titleFormat: {

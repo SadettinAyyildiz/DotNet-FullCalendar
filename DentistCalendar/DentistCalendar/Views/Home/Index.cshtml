@@ -41,7 +41,7 @@
                 header: {
                     left: 'prev, next, today', // araya virgüllerden sonra boşluk bırakırsak takvimde da bırakıyor
                     center: 'title',
-                    right: 'dayGridMonth, timeGridWeek, timeGridDay' // günlere bölünmüş aylar, saatlere bölünmüş haftalar, saatlere bölünmüş günler alanları
+                    right: 'dayGridMonth, timeGridWeek, timeGridDay, timeGridForFourDay' // günlere bölünmüş aylar, saatlere bölünmüş haftalar, saatlere bölünmüş günler alanları
                 },
 
                 // default olarak timeGridWeek mı gelsin dayGridMonth mı gelsin (günlere bölünmüş haftalar, aya göre bölünmüş günler)
@@ -72,11 +72,13 @@
 
                 // kendi görünümünü oluşturma
                 views: {
-                    type: 'timeGrid',
-                    //dayCount gizlenmiş günler denk geliyorsa atlar sonraki günleri alır, duration gizlenmiş günler geliyorsa göstermez eksik gün gösterir
-                    //dayCount: 4,
-                    duration: {days: 4},
-                    buttonText: '4 Gün' // default olarak timeGrid i alır
+                     timeGridForFourDay: {
+                        type: 'timeGrid',
+                        //dayCount gizlenmiş günler denk geliyorsa atlar sonraki günleri alır, duration gizlenmiş günler geliyorsa göstermez eksik gün gösterir
+                        //dayCount: 4,
+                        duration: { days: 4 },
+                        buttonText: '4 Gün' // default olarak timeGrid i alır
+                     }
                 }
             });
             calendar.render();

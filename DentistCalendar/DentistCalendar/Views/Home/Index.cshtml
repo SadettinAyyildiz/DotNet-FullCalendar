@@ -44,11 +44,28 @@
                     right: 'dayGridMonth, timeGridWeek' // günlere bölünmüş aylar ve saatlere bölünmüş haftalar alanları
                 },
 
-                // default olarak timeGridWeek gelsin (günlere bölünmüş haftalar)
-                defaultView: 'timeGridWeek',
+                // default olarak timeGridWeek mı gelsin dayGridMonth mı gelsin (günlere bölünmüş haftalar, aya göre bölünmüş günler)
+                defaultView: 'dayGridMonth',//'timeGridWeek',
 
-                // haftasonları takvimde görünmesin
-                weekends: false
+                // haftasonları takvimde görünsün mü görünmesin mi
+                weekends: true,
+
+                // başlığı formatlamak için
+                titleFormat: {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                },
+
+                //Başlığı formatlama
+                titleRangeSeparator: ' / ',
+
+                //Başlıkları formatlama
+                columnHeaderFormat: {
+                    //month: 'numeric',
+                    weekday: 'long',//'short',
+                    //day: 'numeric'
+                }
             });
             calendar.render();
         });

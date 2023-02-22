@@ -68,6 +68,15 @@
                     //month: 'numeric',
                     weekday: 'long',//'short',
                     //day: 'numeric'
+                },
+
+                // kendi görünümünü oluşturma
+                views: {
+                    type: 'timeGrid',
+                    //dayCount gizlenmiş günler denk geliyorsa atlar sonraki günleri alır, duration gizlenmiş günler geliyorsa göstermez eksik gün gösterir
+                    //dayCount: 4,
+                    duration: {days: 4},
+                    buttonText: '4 Gün' // default olarak timeGrid i alır
                 }
             });
             calendar.render();

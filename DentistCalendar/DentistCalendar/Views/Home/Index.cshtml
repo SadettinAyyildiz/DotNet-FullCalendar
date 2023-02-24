@@ -61,6 +61,13 @@
                     right: 'dayGridMonth, timeGridWeek, timeGridDay, timeGridForFourDay' // günlere bölünmüş aylar, saatlere bölünmüş haftalar, saatlere bölünmüş günler alanları
                 },
 
+                // footer oluşturma
+                footer: {
+                    left: 'prevYear',
+                    //center: 'title',
+                    right: 'nextYear'
+                },
+
                 // default olarak timeGridWeek mı gelsin dayGridMonth mı gelsin (günlere bölünmüş haftalar, aya göre bölünmüş günler)
                 defaultView: 'dayGridMonth',//'timeGridWeek',
 
@@ -110,7 +117,7 @@
                             alert(date);
                         }
                     }
-                },
+                }
 
                 // buton text lerini değiştirmek
                 //buttonText: {
@@ -120,12 +127,6 @@
                 //    day: 'Gün Gün'
                 //},
 
-                // footer oluşturma
-                footer: {
-                    left: 'getDate',
-                    center: 'title',
-                    right: 'timeGridForFourDay'
-                },
             });
             calendar.render();
         });

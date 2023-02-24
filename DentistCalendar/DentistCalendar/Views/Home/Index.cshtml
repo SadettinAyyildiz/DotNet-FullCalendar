@@ -68,6 +68,13 @@
                     right: 'nextYear'
                 },
 
+                // scroll un en üstü kaçtan başlasın
+                //scrollTime: '09:00:00', // default 06:00:00 gelir
+
+                // Takvimin başlangıç ve bitiş saatini ayarlamak için
+                minTime: '08:00:00',
+                maxTime: '21:00:00',
+
                 // otomatik boyutlandırma - responsiv
                 //handleWindowResize: true,  // default true gelir
 
@@ -78,12 +85,12 @@
                 //slotLabelInterval: '00:15:00', // üstteki ile aynı ayarladık, her gridde göstercek
 
                 //// en sol sütundaki saat gösterimini formatlamak için
-                //slotLabelFormat: {
-                //    hour: '2-digit', //'numeric',
-                //    minute: '2-digit',
-                //    //omitZeroMinute: true, // sıfırlı dakikaları göstermez
-                //    //meridiem: 'short' //'long' // Dil ingilizce aayrlanmalı, am/pm gösterimi açma
-                //},
+                slotLabelFormat: {
+                    hour: '2-digit', //'numeric',
+                    minute: '2-digit',
+                    //omitZeroMinute: true, // sıfırlı dakikaları göstermez
+                    //meridiem: 'short' //'long' // Dil ingilizce aayrlanmalı, am/pm gösterimi açma
+                },
 
                 // Ekran boyutu değiştiğinde takvim ne kadar zamanda tekrar render edilsin
                 //windowResizeDelay: 100, // default 100 gelir
@@ -95,7 +102,7 @@
                 //height: 300,
 
                 // Sadece Calendar bölümünün yüksekliğini belirler
-                //contentHeight: 450,
+                contentHeight: 650,
 
                 //Boyut ölçeklendirme
                 //aspectRatio: 1.3

@@ -44,6 +44,13 @@
                 // tema değiştirme
                 themeSystem: 'bootstrap',
 
+                // butonlara ikon eklemek ya da ikonları değiştirmek
+                bootstrapFontAwesome: {
+                    dayGridMonth: 'calendar',
+                    prev: 'fa-chevron-circle-left',
+                    next: 'fa-chevron-circle-right'
+                },
+
                 // takvimin türkçe kullanımı için
                 locale: 'tr',
 
@@ -52,6 +59,13 @@
                     left: 'prev, next, today', //getDate', // araya virgüllerden sonra boşluk bırakırsak takvimde da bırakıyor
                     center: 'title',
                     right: 'dayGridMonth, timeGridWeek, timeGridDay, timeGridForFourDay' // günlere bölünmüş aylar, saatlere bölünmüş haftalar, saatlere bölünmüş günler alanları
+                },
+
+                // footer oluşturma
+                footer: {
+                    left: 'prevYear',
+                    //center: 'title',
+                    right: 'nextYear'
                 },
 
                 // default olarak timeGridWeek mı gelsin dayGridMonth mı gelsin (günlere bölünmüş haftalar, aya göre bölünmüş günler)
@@ -103,7 +117,7 @@
                             alert(date);
                         }
                     }
-                },
+                }
 
                 // buton text lerini değiştirmek
                 //buttonText: {
@@ -113,12 +127,6 @@
                 //    day: 'Gün Gün'
                 //},
 
-                // footer oluşturma
-                footer: {
-                    left: 'getDate',
-                    center: 'title',
-                    right: 'timeGridForFourDay'
-                },
             });
             calendar.render();
         });

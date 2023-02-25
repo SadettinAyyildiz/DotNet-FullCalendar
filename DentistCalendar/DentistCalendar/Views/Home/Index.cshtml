@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='~/lib/fullcalendar/core/main.css' rel='stylesheet' />
     <link href='~/lib/fullcalendar/daygrid/main.css' rel='stylesheet' />
+    <link href='~/lib/fullcalendar/list/main.css' rel='stylesheet' />
     <!-- bootstrap teması için -->
     <link href='~/lib/fullcalendar/bootstrap/main.css' rel='stylesheet' />
     <!-- dosya yolundan sürükle bırak ile sonradan ekledik -->
@@ -22,6 +23,7 @@
 @section Scripts {
     <script src='/lib/fullcalendar/core/main.js'></script>
     <script src='/lib/fullcalendar/daygrid/main.js'></script>
+    <script src='/lib/fullcalendar/list/main.js'></script>
 
     <!-- bootstrap teması için -->
     <script src='/lib/fullcalendar/bootstrap/main.js'></script>
@@ -39,7 +41,7 @@
             var calendar = new FullCalendar.Calendar(calendarEl, {
 
                 // kullanılacak gridleri plugin olarak ekliyoruz
-                plugins: ['dayGrid', 'timeGrid', 'bootstrap'],
+                plugins: ['dayGrid', 'timeGrid', 'list', 'bootstrap'],
 
                 // tema değiştirme
                 themeSystem: 'bootstrap',
@@ -48,7 +50,8 @@
                 bootstrapFontAwesome: {
                     dayGridMonth: 'calendar',
                     prev: 'fa-chevron-circle-left',
-                    next: 'fa-chevron-circle-right'
+                    next: 'fa-chevron-circle-right',
+                    listWeek: 'fa-list' // Ajanda butonuna liste ikonu eklendi
                 },
 
                 // takvimin türkçe kullanımı için
@@ -58,7 +61,8 @@
                 header: {
                     left: 'prev, next, today', //getDate', // araya virgüllerden sonra boşluk bırakırsak takvimde da bırakıyor
                     center: 'title',
-                    right: 'dayGridMonth, timeGridWeek, timeGridDay, timeGridForFourDay' // günlere bölünmüş aylar, saatlere bölünmüş haftalar, saatlere bölünmüş günler alanları
+                    right: 'dayGridMonth, timeGridWeek, timeGridDay, timeGridForFourDay, listWeek', // günlere bölünmüş aylar, saatlere bölünmüş haftalar, saatlere bölünmüş günler alanları
+                    // Liste görünümü: listDay, listWeek, listMonth, listYear 
                 },
 
                 // footer oluşturma
@@ -91,6 +95,13 @@
                     //omitZeroMinute: true, // sıfırlı dakikaları göstermez
                     //meridiem: 'short' //'long' // Dil ingilizce aayrlanmalı, am/pm gösterimi açma
                 },
+
+                // Ay görünümünde kaç hafta görünecek, default 6 gelir, bi sonraki ayın haftaları silik görünür
+                // false yapıldığında o ayda günü olmayan haftaları göstermez
+                fixedWeekCount: true, // default true gelir
+
+                // Aylık görünümde o aya ait olmayan günleri göstermez
+                showNonCurrentDates: false, // default true gelir
 
                 // Ekran boyutu değiştiğinde takvim ne kadar zamanda tekrar render edilsin
                 //windowResizeDelay: 100, // default 100 gelir

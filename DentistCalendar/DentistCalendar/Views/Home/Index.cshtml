@@ -158,6 +158,17 @@
                     }
                 },
 
+                                // buton text lerini değiştirmek
+                //buttonText: {
+                //    today: 'Bugün Bugün',
+                //    month: 'Ay ve Ay',
+                //    week: 'Hafta Hafta',
+                //    day: 'Gün Gün'
+                //},
+
+                // takvimde kullanılacak zaman dilimi için
+                timeZone: 'uTC', // default local gelir ve tarayıcıdan tarayıcıya farklılık gösterir
+
                 //kendi butonumuzu oluşturma
                 customButtons: {
                     getDate: {
@@ -167,15 +178,18 @@
                             alert(date);
                         }
                     }
-                }
+                },
 
-                // buton text lerini değiştirmek
-                //buttonText: {
-                //    today: 'Bugün Bugün',
-                //    month: 'Ay ve Ay',
-                //    week: 'Hafta Hafta',
-                //    day: 'Gün Gün'
-                //},
+                // takvimde randevu oluşturur
+                events: [
+                    {
+                        id: 'xx',
+                        title: 'Merhaba',
+                        start: '2023-03-02T10:00:00.000Z',
+                        end: '2023-03-02T12:30:00.000Z'
+                    }
+                ]
+
 
             });
             calendar.render();

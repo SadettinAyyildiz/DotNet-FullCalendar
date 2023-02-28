@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='~/lib/fullcalendar/core/main.css' rel='stylesheet' />
     <link href='~/lib/fullcalendar/daygrid/main.css' rel='stylesheet' />
+    <link href='~/lib/fullcalendar/interaction/main.js' rel='stylesheet' />
     <link href='~/lib/fullcalendar/list/main.css' rel='stylesheet' />
     <!-- bootstrap teması için -->
     <link href='~/lib/fullcalendar/bootstrap/main.css' rel='stylesheet' />
@@ -23,6 +24,7 @@
 @section Scripts {
     <script src='/lib/fullcalendar/core/main.js'></script>
     <script src='/lib/fullcalendar/daygrid/main.js'></script>
+    <script src='/lib/fullcalendar/interaction/main.js'></script>
     <script src='/lib/fullcalendar/list/main.js'></script>
 
     <!-- bootstrap teması için -->
@@ -41,7 +43,8 @@
             var calendar = new FullCalendar.Calendar(calendarEl, {
 
                 // kullanılacak gridleri plugin olarak ekliyoruz
-                plugins: ['dayGrid', 'timeGrid', 'list', 'bootstrap'],
+                // interaction: selectable ve select kullanımı için
+                plugins: ['interaction','dayGrid', 'timeGrid', 'list', 'bootstrap'],
 
                 // tema değiştirme
                 themeSystem: 'bootstrap',
@@ -188,7 +191,14 @@
                         start: '2023-03-02T10:00:00.000Z',
                         end: '2023-03-02T12:30:00.000Z'
                     }
-                ]
+                ],
+
+                // takvim üzerinden seçim yapabilmek için
+                selectable: true,
+                select: function (selectionInfo) { //selectionInfo: start/end gibi bilgilere ulaşabiliriz
+                    //istedin kod
+                    console.log(selectionInfo);
+                }
 
 
             });

@@ -186,9 +186,15 @@
                 // takvimde randevu oluşturur
                 events: [
                     {
-                        id: 'xx',
-                        title: 'Merhaba',
-                        start: '2023-03-02T10:00:00.000Z',
+                        id: 'x',
+                        title: 'Merhaba X',
+                        start: '2023-03-03T08:00:00.000Z',
+                        end: '2023-03-02T10:30:00.000Z'
+                    },
+                    {
+                        id: 'y',
+                        title: 'Merhaba Y',
+                        start: '2023-03-03T11:00:00.000Z',
                         end: '2023-03-02T12:30:00.000Z'
                     }
                 ],
@@ -203,6 +209,16 @@
 
             });
             calendar.render();
+
+            // oluşturulan eventleri yakalamak için
+            var events = calendar.getEvents();
+            console.log(events); // event.start, event.title gibi özelliklerine ulaşabiliyoruz
+
+
+            // oluşturulan bir eventi id ile yakalamak için
+            var id = 'x';
+            var event = calendar.getEventById(id);
+            console.log(event); // event.start, event.title gibi özelliklerine ulaşabiliyoruz
         });
 
     </script>

@@ -62,7 +62,7 @@
 
                 // header bölümünde ne hangi tarafta görünecek
                 header: {
-                    left: 'prev, next, today', //getDate', // araya virgüllerden sonra boşluk bırakırsak takvimde da bırakıyor
+                    left: 'prev, next, today, addEvent', //getDate', // araya virgüllerden sonra boşluk bırakırsak takvimde da bırakıyor
                     center: 'title',
                     right: 'dayGridMonth, timeGridWeek, timeGridDay, timeGridForFourDay, listWeek', // günlere bölünmüş aylar, saatlere bölünmüş haftalar, saatlere bölünmüş günler alanları
                     // Liste görünümü: listDay, listWeek, listMonth, listYear 
@@ -173,12 +173,28 @@
                 timeZone: 'uTC', // default local gelir ve tarayıcıdan tarayıcıya farklılık gösterir
 
                 //kendi butonumuzu oluşturma
+                //customButtons: {
+                //    getDate: {
+                //        text: 'date',
+                //        click: function () {
+                //            var date = new Date();
+                //            alert(date);
+                //        }
+                //    }
+                //},
+
+                //kendi butonumuzu oluşturma ve bu butonla event ekleme
                 customButtons: {
-                    getDate: {
-                        text: 'date',
+                    addEvent: {
+                        text: 'Ekle',
                         click: function () {
-                            var date = new Date();
-                            alert(date);
+                            var newEvent = {
+                                id: 'a',
+                                title: 'New Event',
+                                start: '2023-03-03T15:00:00.000Z',
+                                end: '2023-03-03T15:30:00.000Z'
+                            }
+                            calendar.addEvent(newEvent);
                         }
                     }
                 },

@@ -207,6 +207,19 @@
                 //eventBorderColor: 'black',
                 //eventTextColor: 'white',
 
+                // event başlangıç ve bitiş zamanlarını formatlama
+                eventTimeFormat: {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    //second: '2-digit',
+                    //omitZeroMinute: true, // sıfırlı dakikaları göstermez
+                    //meridiem: 'short' //'long' // Dil ingilizce aayrlanmalı, am/pm gösterimi açma 'narrow' -> a,p
+                },
+
+               
+                displayEventTime: true, // randevu/event alanında saati göstersin mi? default: true gelir
+                displayEventEnd: false, // randevu bitiş saati görünsün mü? false olursa sadece başlangıç görünür. default: true gelir.
+
                 // takvimde randevu oluşturur
                 events: [
                     {

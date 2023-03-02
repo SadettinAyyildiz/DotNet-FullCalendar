@@ -238,11 +238,27 @@
                     }
                 ],
 
+                //
+                eventRender: function (info) {
+                    console.log(info.event.title); // info: eventi döner.  event, el, isMirror
+                },
+
                 // takvim üzerinden seçim yapabilmek için
                 selectable: true,
                 select: function (selectionInfo) { //selectionInfo: start/end gibi bilgilere ulaşabiliriz
                     //istedin kod
                     console.log(selectionInfo);
+                },
+
+                // event tıklandığında, fare üzerine geldiğinde...
+                eventClick: function (info) {
+                    alert(info.event.title);
+                },
+                eventMouseEnter: function (onMouse) {
+                    alert(onMouse.event.start);
+                },
+                eventMouseLeave: function (mouseLeave) {
+                    alert(mouseLeave.event.id);
                 }
 
             });
@@ -256,6 +272,10 @@
             var id = 'x';
             var event = calendar.getEventById(id);
             console.log(event); // event.start, event.title gibi özelliklerine ulaşabiliyoruz
+
+            // tekrar render edilmesini istersek
+            //calendar.renderEvents();
+
         });
 
     </script>

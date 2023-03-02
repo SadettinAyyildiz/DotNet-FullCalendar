@@ -161,7 +161,10 @@
                     }
                 },
 
-                                // buton text lerini değiştirmek
+                // Eventleri sıralama
+                // eventOrder: 'title' // start, duration, allDay, title, [], function
+
+                // buton text lerini değiştirmek
                 //buttonText: {
                 //    today: 'Bugün Bugün',
                 //    month: 'Ay ve Ay',
@@ -215,7 +218,6 @@
                     //omitZeroMinute: true, // sıfırlı dakikaları göstermez
                     //meridiem: 'short' //'long' // Dil ingilizce aayrlanmalı, am/pm gösterimi açma 'narrow' -> a,p
                 },
-
                
                 displayEventTime: true, // randevu/event alanında saati göstersin mi? default: true gelir
                 displayEventEnd: false, // randevu bitiş saati görünsün mü? false olursa sadece başlangıç görünür. default: true gelir.
@@ -243,14 +245,12 @@
                     console.log(selectionInfo);
                 }
 
-
             });
             calendar.render();
 
             // oluşturulan eventleri yakalamak için
             var events = calendar.getEvents();
             console.log(events); // event.start, event.title gibi özelliklerine ulaşabiliyoruz
-
 
             // oluşturulan bir eventi id ile yakalamak için
             var id = 'x';

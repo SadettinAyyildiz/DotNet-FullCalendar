@@ -161,7 +161,10 @@
                     }
                 },
 
-                                // buton text lerini değiştirmek
+                // Eventleri sıralama
+                // eventOrder: 'title' // start, duration, allDay, title, [], function
+
+                // buton text lerini değiştirmek
                 //buttonText: {
                 //    today: 'Bugün Bugün',
                 //    month: 'Ay ve Ay',
@@ -215,7 +218,6 @@
                     //omitZeroMinute: true, // sıfırlı dakikaları göstermez
                     //meridiem: 'short' //'long' // Dil ingilizce aayrlanmalı, am/pm gösterimi açma 'narrow' -> a,p
                 },
-
                
                 displayEventTime: true, // randevu/event alanında saati göstersin mi? default: true gelir
                 displayEventEnd: false, // randevu bitiş saati görünsün mü? false olursa sadece başlangıç görünür. default: true gelir.
@@ -236,13 +238,28 @@
                     }
                 ],
 
+                //
+                eventRender: function (info) {
+                    console.log(info.event.title); // info: eventi döner.  event, el, isMirror
+                },
+
                 // takvim üzerinden seçim yapabilmek için
                 selectable: true,
                 select: function (selectionInfo) { //selectionInfo: start/end gibi bilgilere ulaşabiliriz
                     //istedin kod
                     console.log(selectionInfo);
-                }
+                },
 
+                // event tıklandığında, fare üzerine geldiğinde...
+                eventClick: function (info) {
+                    alert(info.event.title);
+                },
+                eventMouseEnter: function (onMouse) {
+                    alert(onMouse.event.start);
+                },
+                eventMouseLeave: function (mouseLeave) {
+                    alert(mouseLeave.event.id);
+                }
 
             });
             calendar.render();
@@ -251,11 +268,14 @@
             var events = calendar.getEvents();
             console.log(events); // event.start, event.title gibi özelliklerine ulaşabiliyoruz
 
-
             // oluşturulan bir eventi id ile yakalamak için
             var id = 'x';
             var event = calendar.getEventById(id);
             console.log(event); // event.start, event.title gibi özelliklerine ulaşabiliyoruz
+
+            // tekrar render edilmesini istersek
+            //calendar.renderEvents();
+
         });
 
     </script>

@@ -269,6 +269,26 @@
                 dragScroll: false, // aşağı sürükleyince scroll kaysın mı? default true gelir.
                 snapDuration: '00:15:00', // kaç dakika kaç dakika kaydırabilirsin. default 30 dakika gelir
 
+                // eventler üst üste gelsin mi. true false döner
+                eventOverlap: function (stillEvent, movingEvent) { 
+                    // burada bazı kontroller yapılabilir
+                    return stillEvent.allDay && movingEvent.allDay;  // ikisi de allday olmadığı için false döner
+                },
+
+                // sadece belli aralıklarda güncellemeye izin ver
+                eventConstraint: {
+                    startTime: '10:00',
+                    endTime: '18:00',
+                    daysOfWeek: [1,2,3] // haftanın 1. 2. 3. gününe izin ver
+                },
+
+                // sürüklenen event üzerinde kontrol yapacaksak, ... varsa sürüklemeye izin verme gibi
+                // örn: sürüklenen eventin başlangıç tarihi şu tarihten küçükse
+                eventAllow: function (dropInfoEvent, draggedEvent) {
+                    // kontroller yapılır
+                    return false;
+                }
+
             });
             calendar.render();
 

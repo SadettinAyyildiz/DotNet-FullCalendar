@@ -254,12 +254,16 @@
                 eventClick: function (info) {
                     alert(info.event.title);
                 },
-                eventMouseEnter: function (onMouse) {
-                    alert(onMouse.event.start);
-                },
-                eventMouseLeave: function (mouseLeave) {
-                    alert(mouseLeave.event.id);
-                }
+                //eventMouseEnter: function (onMouse) {
+                //    alert(onMouse.event.start);
+                //},
+                //eventMouseLeave: function (mouseLeave) {
+                //    alert(mouseLeave.event.id);
+                //}
+               
+                editable: true, // eventi sürükle bırak yapma, değiştirme özelliğini açmak için. açınca alttaki 2 özellik otomat true gelir
+                eventStartEditable: false, // eventi sadece uzatabiliriz, başlangıcını değiştiremeyiz. default: true gelir
+                eventDurationEditable: false // resize etme özelliğini kapatır. default true gelir
 
             });
             calendar.render();

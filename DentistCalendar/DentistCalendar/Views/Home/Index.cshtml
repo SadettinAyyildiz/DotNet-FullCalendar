@@ -289,17 +289,29 @@
                 //    return false;
                 //},
 
-                // eventi hareket ettirdiğimizde çalışacak fonksiyon
+                // eventi hareket ettirdiğimizde çalışacak fonksiyonlar
                 eventDragStart: function (info) { // eventi sürüklemeye başladığım anda çalışır
                     console.log('başladı');
                 },
-                eventDragStop: function (info) { // eb-venti sürüklemeyi bıraktığım anda çalışır
+                eventDragStop: function (info) { // eventi sürüklemeyi bıraktığım anda çalışır
                     console.log('bitti');
                 },
-                eventDrop: function (eventDropInfo) {
+                eventDrop: function (eventDropInfo) { //üstteki iki methoddan sonra çalışır, değişiklik yoksa çalışmaz
                     // eventDragStart da ilk tarihe ulaşılırken bunda yeni tarihe de ulaşılabilir
-                    console.log('dropped'); // event (üsttekilerde de ulaşılıyo) ve oldEvent e ulaşabilirim
-                }
+                    console.log('dropped'); // event (üsttekilerde de ulaşılıyo) ve oldEvent e ulaşabilirim. revert() fonksiyonu ile aksilik durumunda geri dönülebilir
+                },
+
+                // event yeniden boyutlandırıldığında çalışacak fonksiyonlar
+                eventResizeStart: function (info) {
+                    console.log('eventResizeStart'); // eventi büyütmeye başladığım anda çalışır
+                },
+                eventResizeStop: function (info) {
+                    console.log('eventResizeStop'); // eventi büyütmeyi bıraktığım anda çalışır
+                },
+                eventResize: function (eventResizeInfo) { //üstteki iki methoddan sonra çalışır, değişiklik yoksa çalışmaz
+                    console.log('eventResize'); // event, oldEvent e ulaşılabilir. revert() fonksiyonu ile aksilik durumunda geri dönülebilir
+                    //eventResizeInfo.revort(); // revert() fonksiyonu ile aksilik durumunda geri dönülebilir
+                },
 
             });
             calendar.render();

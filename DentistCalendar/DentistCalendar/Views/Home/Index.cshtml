@@ -16,8 +16,23 @@
     <link href="~/lib/fullcalendar/timegrid/main.css" rel="stylesheet" />
 }
 
-<div id="calendar">
+<div class="row">
+    <div class="col-md-2">
+        <div id="otherEvents">
+            <p><strong>Sürüklenebilir Elementler</strong></p>
+            <div class="fc-event"> <!-- full calenderdan gelen bir sınıf fc-event -->
+                1. Etkinlik
+            </div><br />
+            <div class="fc-event"> <!-- full calenderdan gelen bir sınıf fc-event -->
+                2. Etkinlik
+            </div>
+        </div>
+    </div>
+    <div class="col-md-10">
+        <div id="calendar">
 
+        </div>
+    </div>
 </div>
 
 
@@ -39,7 +54,21 @@
     <script>
 
         document.addEventListener('DOMContentLoaded', function () {
+
             var calendarEl = document.getElementById('calendar');
+            var draggableEl = document.getElementById('otherEvents'); // yandaki sürüklenebilir menüyü ekliyoruz
+
+            var Draggable = FullCalendarInteraction.Draggable;
+            new Draggable(draggableEl, {
+                itemSelector: '.fc-event',
+                eventData: function (eventEl) {
+                    return {
+                        title: eventEl.innerText,
+                        duration: '01:30'
+                    };
+                }
+            });
+
             var calendar = new FullCalendar.Calendar(calendarEl, {
 
                 // kullanılacak gridleri plugin olarak ekliyoruz
@@ -253,6 +282,10 @@
 
                 // takvim üzerinden seçim yapabilmek için
                 selectable: true,
+
+                // yan menü için sürüklenebilir özellğini açıyoruz
+                droppable: true,
+
                 select: function (selectionInfo) { //selectionInfo: start/end gibi bilgilere ulaşabiliriz
                     //istedin kod
                     console.log(selectionInfo);

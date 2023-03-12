@@ -8,7 +8,7 @@ namespace DentistCalendar.Data.Entity
 {
     public class AppUser : IdentityUser
     {
-        public bool isDentist { get; set; }
+        public bool IsDentist { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Color { get; set; }

@@ -11,6 +11,7 @@ namespace DentistCalendar.Data.Entity
         public bool isDentist { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
+        public string Color { get; set; }
 
         List<Appointment> Appointments { get; set; } // navigation property -> bire çok ilişki olan bağlantım
     }

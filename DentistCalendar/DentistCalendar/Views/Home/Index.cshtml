@@ -354,6 +354,20 @@
                     //eventResizeInfo.revort(); // revert() fonksiyonu ile aksilik durumunda geri dönülebilir
                 },
 
+                // yan menüden sürüklenebilir event içine fonksiyon yazma
+                drop: function (dropInfo) {
+                    console.log("event dropped"); // allDay, date, dateStr, draggedEl e ulaşılabilir. dropInfo.allDay şeklinde
+                },
+
+                // üsttekinden farkı sürüklenen fonksiyon event data içerdiğinde tetiklenir
+                eventReceive: function (receiveInfo) {
+                    console.log("eventReceive"); // draggedEl ve event e ulaşılabilir. recieveInfo.event şeklinde
+                },
+
+                eventLeave: function (leaveInfo) { // takvimler arası olaylar sürüklendiğinde çalışır
+                    console.log("eventLeave");
+                },
+
             });
             calendar.render();
 

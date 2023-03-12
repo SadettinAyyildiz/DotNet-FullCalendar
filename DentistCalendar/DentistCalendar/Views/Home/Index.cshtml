@@ -20,10 +20,10 @@
     <div class="col-md-2">
         <div id="otherEvents">
             <p><strong>Sürüklenebilir Elementler</strong></p>
-            <div class="fc-event"> <!-- full calenderdan gelen bir sınıf fc-event -->
+            <div class="fc-event" id="isValid"> <!-- full calenderdan gelen bir sınıf fc-event -->
                 1. Etkinlik
             </div><br />
-            <div class="fc-event"> <!-- full calenderdan gelen bir sınıf fc-event -->
+            <div class="fc-event" id="isNotValid"> <!-- full calenderdan gelen bir sınıf fc-event -->
                 2. Etkinlik
             </div>
         </div>
@@ -353,6 +353,23 @@
                     console.log('eventResize'); // event, oldEvent e ulaşılabilir. revert() fonksiyonu ile aksilik durumunda geri dönülebilir
                     //eventResizeInfo.revort(); // revert() fonksiyonu ile aksilik durumunda geri dönülebilir
                 },
+
+                // yan menüden sürüklenebilir event içine fonksiyon yazma
+                drop: function (dropInfo) {
+                    console.log("event dropped"); // allDay, date, dateStr, draggedEl e ulaşılabilir. dropInfo.allDay şeklinde
+                },
+
+                // üsttekinden farkı sürüklenen fonksiyon event data içerdiğinde tetiklenir
+                eventReceive: function (receiveInfo) {
+                    console.log("eventReceive"); // draggedEl ve event e ulaşılabilir. recieveInfo.event şeklinde
+                },
+
+                eventLeave: function (leaveInfo) { // takvimler arası olaylar sürüklendiğinde çalışır
+                    console.log("eventLeave");
+                },
+
+                // sürüklenebilir eventlere izin verme ya da vermeme. . ile class # ile id seçilerek yapılır
+                dropAccept: '#isValid',
 
             });
             calendar.render();
